@@ -32,7 +32,9 @@ namespace ParkingClient
             this.CameraVideo = new System.Windows.Forms.PictureBox();
             this.CmbCameras = new System.Windows.Forms.ComboBox();
             this.BtnStartCamera = new System.Windows.Forms.Button();
+            this.RecognizedPlate = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.CameraVideo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecognizedPlate)).BeginInit();
             this.SuspendLayout();
             // 
             // CameraVideo
@@ -61,11 +63,21 @@ namespace ParkingClient
             this.BtnStartCamera.UseVisualStyleBackColor = true;
             this.BtnStartCamera.Click += new System.EventHandler(this.BtnStartCamera_Click);
             // 
+            // RecognizedPlate
+            // 
+            this.RecognizedPlate.Location = new System.Drawing.Point(713, 385);
+            this.RecognizedPlate.Name = "RecognizedPlate";
+            this.RecognizedPlate.Size = new System.Drawing.Size(357, 233);
+            this.RecognizedPlate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.RecognizedPlate.TabIndex = 3;
+            this.RecognizedPlate.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1197, 640);
+            this.Controls.Add(this.RecognizedPlate);
             this.Controls.Add(this.BtnStartCamera);
             this.Controls.Add(this.CmbCameras);
             this.Controls.Add(this.CameraVideo);
@@ -73,6 +85,7 @@ namespace ParkingClient
             this.Text = "Parking System";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.CameraVideo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecognizedPlate)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -82,6 +95,7 @@ namespace ParkingClient
         private System.Windows.Forms.PictureBox CameraVideo;
         private System.Windows.Forms.ComboBox CmbCameras;
         private System.Windows.Forms.Button BtnStartCamera;
+        private System.Windows.Forms.PictureBox RecognizedPlate;
     }
 }
 
