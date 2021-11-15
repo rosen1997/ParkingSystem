@@ -14,6 +14,8 @@ namespace ParkingServer.Repository
         public DbSet<VehicleType> VehicleTypes { get; set; }
         public DbSet<RegisteredVehicle> RegisteredVehicles { get; set; }
 
+        public DbSet<ParkingData> ParkingsData { get; set; }
+
         public RepositoryContext(DbContextOptions options) : base(options)
         {
         }
@@ -33,6 +35,11 @@ namespace ParkingServer.Repository
             #region RegisteredVehicles
             modelBuilder.Entity<RegisteredVehicle>()
                 .HasIndex(x => x.LicensePlate).IsUnique();
+            #endregion
+
+            #region ParkingsData
+            modelBuilder.Entity<ParkingData>()
+                .HasData(ParkingsDataSeed.Seed());
             #endregion
         }
     }
