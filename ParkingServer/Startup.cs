@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using ParkingServer.Repository;
+using ParkingServer.Repository.UnitOfWorkFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,8 +31,9 @@ namespace ParkingServer
             services.AddControllers();
 
             string connectionString = Configuration.GetConnectionString("ConnectionStringLocalhost");
-
             services.AddDbContext<RepositoryContext>(options => { options.UseSqlServer(connectionString); });
+
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

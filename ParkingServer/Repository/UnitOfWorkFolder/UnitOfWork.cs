@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ParkingServer.Repository.Managers;
+using ParkingServer.Repository.Managers.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,9 +12,27 @@ namespace ParkingServer.Repository.UnitOfWorkFolder
         private readonly RepositoryContext repositoryContext;
         private bool disposedValue;
 
+        public IParkingDataManager ParkingDataManager { get; }
+
+        public IParkingStatusManager ParkingStatusManager { get; }
+
+        public IPaymentManager PaymentManager { get; }
+
+        public IPriceRangeManager PriceRangeManager { get; }
+
+        public IRegisteredVehicleManager RegisteredVehicleManager { get; }
+
+        public IVehicleTypeManager VehicleTypeManager { get; }
+
         public UnitOfWork(RepositoryContext repositoryContext)
         {
             this.repositoryContext = repositoryContext;
+            ParkingDataManager = new ParkingDataManager(repositoryContext);
+            ParkingStatusManager = new ParkingStatusManager(repositoryContext);
+            PaymentManager = new PaymentManager(repositoryContext);
+            PriceRangeManager = new PriceRangeManager(repositoryContext);
+            RegisteredVehicleManager = new RegisteredVehicleManager(repositoryContext);
+            VehicleTypeManager = new VehicleTypeManager(repositoryContext);
         }
 
         public void RevertChanges()
