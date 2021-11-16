@@ -1,4 +1,5 @@
-﻿using ParkingServer.Repository.Entities;
+﻿using ParkingServer.Models.EntityModels;
+using ParkingServer.Repository.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace ParkingServer.Repository.Services.Interfaces
 {
     public interface IPriceRangeService
     {
-        public IEnumerable<PriceRange> GetAll();
-        public void AddPriceRange(PriceRange priceRange);
+        public IEnumerable<PriceRangeModel> GetAll();
+        public PriceRangeModel AddPriceRange(PriceRangeModel priceRange);
     }
 }

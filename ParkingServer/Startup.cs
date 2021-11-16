@@ -8,6 +8,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using ParkingServer.Repository;
+using ParkingServer.Repository.Services;
+using ParkingServer.Repository.Services.Interfaces;
 using ParkingServer.Repository.UnitOfWorkFolder;
 using System;
 using System.Collections.Generic;
@@ -35,6 +37,7 @@ namespace ParkingServer
 
             services.AddAutoMapper(typeof(Startup));
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IPriceRangeService, PriceRangeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
