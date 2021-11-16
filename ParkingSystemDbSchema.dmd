@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="ParkingSystemDbSchema" id="E634FA55-97FB-6123-2D28-D5335DAB169E" version="3.5">
+<createdBy>Rosen</createdBy>
+<createdTime>2021-11-15 07:50:25 UTC</createdTime>
+<ownerDesignName>ParkingSystemDbSchema</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>E634FA55-97FB-6123-2D28-D5335DAB169E</designId>
+</OSDM_Design>
