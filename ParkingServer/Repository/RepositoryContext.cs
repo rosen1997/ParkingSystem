@@ -13,8 +13,9 @@ namespace ParkingServer.Repository
         public DbSet<PriceRange> PriceRanges { get; set; }
         public DbSet<VehicleType> VehicleTypes { get; set; }
         public DbSet<RegisteredVehicle> RegisteredVehicles { get; set; }
-
         public DbSet<ParkingData> ParkingsData { get; set; }
+        public DbSet<ParkingStatus> ParkingDatas { get; set; }
+        public DbSet<Payment> Payments { get; set; }
 
         public RepositoryContext(DbContextOptions options) : base(options)
         {
@@ -40,6 +41,19 @@ namespace ParkingServer.Repository
             #region ParkingsData
             modelBuilder.Entity<ParkingData>()
                 .HasData(ParkingsDataSeed.Seed());
+            #endregion
+
+            #region ParkingStatus
+            modelBuilder.Entity<ParkingStatus>()
+                .HasOne(x => x.RegisteredVehicle)
+                .WithMany(x => x.ParkingStatuses)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+            #endregion
+
+            #region Payments
+            modelBuilder.Entity<Payment>()
+                .HasOne(x => x.ParkingStatus)
+                .WithOne(x => x.Payment);
             #endregion
         }
     }

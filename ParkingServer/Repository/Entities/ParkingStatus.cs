@@ -7,24 +7,29 @@ using System.Threading.Tasks;
 
 namespace ParkingServer.Repository.Entities
 {
-    [Table("RegisteredVehicles")]
+    [Table("ParkingStatus")]
     [Serializable]
-    public class RegisteredVehicle
+    public class ParkingStatus
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]
         [MaxLength(10)]
-        public string LicensePlate { get; set; }
+        public string LicensePlte { get; set; }
+
+        [Required]
+        public DateTime TimeOfArrival { get; set; }
+
+        public DateTime? TimeOfLeave { get; set; }
 
         //Relations
+        public int? RegisteredVehicleId { get; set; }
+        public RegisteredVehicle RegisteredVehicle { get; set; }
+
         public int PriceRangeId { get; set; }
         public PriceRange PriceRange { get; set; }
 
-        public int VehicleTypeId { get; set; }
-        public VehicleType VehicleType { get; set; }
-
-        public IEnumerable<ParkingStatus> ParkingStatuses { get; set; }
+        public Payment Payment { get; set; }
     }
 }

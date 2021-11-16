@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ParkingServer.Repository;
 
 namespace ParkingServer.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20211116072408_AddParkingStatus")]
+    partial class AddParkingStatus
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,30 +89,6 @@ namespace ParkingServer.Migrations
                     b.HasIndex("RegisteredVehicleId");
 
                     b.ToTable("ParkingStatus");
-                });
-
-            modelBuilder.Entity("ParkingServer.Repository.Entities.Payment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ParkingStatusId")
-                        .HasColumnType("int");
-
-                    b.Property<double>("PaymentAmount")
-                        .HasColumnType("float");
-
-                    b.Property<DateTime>("PaymentDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ParkingStatusId")
-                        .IsUnique();
-
-                    b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("ParkingServer.Repository.Entities.PriceRange", b =>
@@ -235,15 +213,6 @@ namespace ParkingServer.Migrations
                     b.HasOne("ParkingServer.Repository.Entities.RegisteredVehicle", "RegisteredVehicle")
                         .WithMany("ParkingStatuses")
                         .HasForeignKey("RegisteredVehicleId");
-                });
-
-            modelBuilder.Entity("ParkingServer.Repository.Entities.Payment", b =>
-                {
-                    b.HasOne("ParkingServer.Repository.Entities.ParkingStatus", "ParkingStatus")
-                        .WithOne("Payment")
-                        .HasForeignKey("ParkingServer.Repository.Entities.Payment", "ParkingStatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("ParkingServer.Repository.Entities.RegisteredVehicle", b =>

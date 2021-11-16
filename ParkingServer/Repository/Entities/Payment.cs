@@ -7,18 +7,21 @@ using System.Threading.Tasks;
 
 namespace ParkingServer.Repository.Entities
 {
-    [Table("PriceRange")]
+    [Table("Payments")]
     [Serializable]
-    public class PriceRange
+    public class Payment
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]
-        public double Price { get; set; }
+        public DateTime PaymentDate { get; set; }
 
-        public IEnumerable<RegisteredVehicle> RegisteredVehicles { get; set; }
+        [Required]
+        public double PaymentAmount { get; set; }
 
-        public IEnumerable<ParkingStatus> ParkingStatuses { get; set; }
+
+        public int ParkingStatusId { get; set; }
+        public ParkingStatus ParkingStatus { get; set; }
     }
 }
