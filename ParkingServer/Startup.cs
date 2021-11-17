@@ -39,6 +39,7 @@ namespace ParkingServer
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IPriceRangeService, PriceRangeService>();
             services.AddTransient<IVehicleTypeService, VehicleTypeService>();
+            services.AddTransient<IParkingDataService, ParkingDataService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
