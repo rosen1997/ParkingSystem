@@ -9,5 +9,8 @@ namespace ParkingServer.Repository.Managers.Interfaces
 {
     public interface IParkingStatusManager : IRepositoryBase<ParkingStatus>
     {
+        public IEnumerable<ParkingStatus> GetByEntryDate(DateTime dateTime);
+        public IEnumerable<ParkingStatus> GetByLicensePlate(string licensePlate);
+        public ParkingStatus GetByLicensePlateLastEntry(string licensePlate);
     }
 }

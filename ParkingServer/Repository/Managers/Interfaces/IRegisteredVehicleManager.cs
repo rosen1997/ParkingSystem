@@ -10,5 +10,6 @@ namespace ParkingServer.Repository.Managers.Interfaces
     public interface IRegisteredVehicleManager : IRepositoryBase<RegisteredVehicle>
     {
         public IEnumerable<RegisteredVehicle> GetAllWithRelations();
+        public RegisteredVehicle GetByLicensePlate(string licensePlate);
     }
 }

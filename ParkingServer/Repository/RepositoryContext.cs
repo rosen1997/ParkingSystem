@@ -14,7 +14,7 @@ namespace ParkingServer.Repository
         public DbSet<VehicleType> VehicleTypes { get; set; }
         public DbSet<RegisteredVehicle> RegisteredVehicles { get; set; }
         public DbSet<ParkingData> ParkingsData { get; set; }
-        public DbSet<ParkingStatus> ParkingDatas { get; set; }
+        public DbSet<ParkingStatus> ParkingStatuses { get; set; }
         public DbSet<Payment> Payments { get; set; }
 
         public RepositoryContext(DbContextOptions options) : base(options)

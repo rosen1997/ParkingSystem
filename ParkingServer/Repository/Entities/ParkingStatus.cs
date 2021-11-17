@@ -16,7 +16,7 @@ namespace ParkingServer.Repository.Entities
 
         [Required]
         [MaxLength(10)]
-        public string LicensePlte { get; set; }
+        public string LicensePlate { get; set; }
 
         [Required]
         public DateTime TimeOfArrival { get; set; }

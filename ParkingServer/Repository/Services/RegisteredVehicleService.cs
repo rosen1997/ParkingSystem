@@ -28,6 +28,13 @@ namespace ParkingServer.Repository.Services
             return mapper.Map<IEnumerable<RegisteredVehicleModel>>(registeredVehicles);
         }
 
+        public RegisteredVehicleModel GetByLicensePlate(string licensePlate)
+        {
+            var registeredVehicle = unitOfWork.RegisteredVehicleManager.GetByLicensePlate(licensePlate);
+
+            return mapper.Map<RegisteredVehicleModel>(registeredVehicle);
+        }
+
         public RegisteredVehicleModel RegisterVehicle(RegisteredVehicleModel registeredVehicleModel)
         {
             var registeredVehicleEntity = mapper.Map<RegisteredVehicle>(registeredVehicleModel);

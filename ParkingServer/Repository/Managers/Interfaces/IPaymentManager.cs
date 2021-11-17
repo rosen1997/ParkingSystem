@@ -9,5 +9,7 @@ namespace ParkingServer.Repository.Managers.Interfaces
 {
     public interface IPaymentManager : IRepositoryBase<Payment>
     {
+        public IEnumerable<Payment> GetAllByDate(DateTime dateTime);
+        public IEnumerable<Payment> GetAllByLicensePlate(string licensePlate);
     }
 }

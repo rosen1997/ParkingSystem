@@ -12,5 +12,6 @@ namespace ParkingServer.Repository.Services.Interfaces
         public RegisteredVehicleModel RegisterVehicle(RegisteredVehicleModel registeredVehicleModel);
         public void RemoveVehicle(RegisteredVehicleModel registeredVehicleModel);
         public RegisteredVehicleModel UpdateRegisteredVehicleData(RegisteredVehicleModel registeredVehicleModel);
+        public RegisteredVehicleModel GetByLicensePlate(string licensePlate);
     }
 }

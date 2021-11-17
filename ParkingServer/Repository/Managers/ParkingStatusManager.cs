@@ -13,5 +13,20 @@ namespace ParkingServer.Repository.Managers
         public ParkingStatusManager(RepositoryContext repositoryContext) : base(repositoryContext)
         {
         }
+
+        public IEnumerable<ParkingStatus> GetByEntryDate(DateTime dateTime)
+        {
+            return RepositoryContext.ParkingStatuses.Where(x => x.TimeOfArrival.Equals(dateTime));
+        }
+
+        public IEnumerable<ParkingStatus> GetByLicensePlate(string licensePlate)
+        {
+            return RepositoryContext.ParkingStatuses.Where(x => x.LicensePlate.Equals(licensePlate));
+        }
+
+        public ParkingStatus GetByLicensePlateLastEntry(string licensePlate)
+        {
+            return RepositoryContext.ParkingStatuses.Where(x => x.LicensePlate.Equals(licensePlate) && x.TimeOfLeave == null).SingleOrDefault();
+        }
     }
 }

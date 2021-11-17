@@ -1,4 +1,5 @@
-﻿using ParkingServer.Repository.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using ParkingServer.Repository.Entities;
 using ParkingServer.Repository.Managers.Interfaces;
 using ParkingServer.Repository.RepositoryBaseFolder;
 using System;
@@ -12,6 +13,18 @@ namespace ParkingServer.Repository.Managers
     {
         public PaymentManager(RepositoryContext repositoryContext) : base(repositoryContext)
         {
+        }
+
+        public IEnumerable<Payment> GetAllByDate(DateTime dateTime)
+        {
+            return RepositoryContext.Payments.Where(x => x.PaymentDate.Equals(dateTime));
+        }
+
+        public IEnumerable<Payment> GetAllByLicensePlate(string licensePlate)
+        {
+            return RepositoryContext.Payments
+                .Include(x => x.ParkingStatus)
+                .Where(x => x.ParkingStatus.LicensePlate.Equals(licensePlate));
         }
     }
 }

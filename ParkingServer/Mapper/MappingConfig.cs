@@ -21,6 +21,10 @@ namespace ParkingServer.Mapper
             ParkingDataModelMap();
             RegisteredVehicleMap();
             RegisteredVehicleModelMap();
+            ParkingStatusMap();
+            ParkingStatusModelMap();
+            PaymentMap();
+            PaymentModelMap();
         }
 
         private void PriceRangeMap()
@@ -68,6 +72,30 @@ namespace ParkingServer.Mapper
         private void RegisteredVehicleModelMap()
         {
             CreateMap<RegisteredVehicleModel, RegisteredVehicle>()
+                ;
+        }
+
+        private void ParkingStatusMap()
+        {
+            CreateMap<ParkingStatus, ParkingStatusModel>()
+                ;
+        }
+
+        private void ParkingStatusModelMap()
+        {
+            CreateMap<ParkingStatusModel, ParkingStatus>()
+                ;
+        }
+
+        private void PaymentMap()
+        {
+            CreateMap<Payment, PaymentModel>()
+                ;
+        }
+
+        private void PaymentModelMap()
+        {
+            CreateMap<PaymentModel, Payment>()
                 ;
         }
     }

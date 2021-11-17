@@ -21,5 +21,13 @@ namespace ParkingServer.Repository.Managers
                 .Include(x => x.PriceRange)
                 .Include(x => x.VehicleType);
         }
+
+        public RegisteredVehicle GetByLicensePlate(string licensePlate)
+        {
+            return RepositoryContext.RegisteredVehicles.Where(x => x.LicensePlate.Equals(licensePlate))
+                .Include(x => x.PriceRange)
+                .Include(x => x.VehicleType)
+                .SingleOrDefault();
+        }
     }
 }
