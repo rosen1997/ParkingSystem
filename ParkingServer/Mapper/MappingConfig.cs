@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ParkingServer.Models;
 using ParkingServer.Models.EntityModels;
 using ParkingServer.Repository.Entities;
 using System;
@@ -14,6 +15,8 @@ namespace ParkingServer.Mapper
         {
             PriceRangeMap();
             PriceRangeModelMap();
+            VehicleTypeMap();
+            VehicleTypeModelMap();
         }
 
         private void PriceRangeMap()
@@ -25,6 +28,18 @@ namespace ParkingServer.Mapper
         private void PriceRangeModelMap()
         {
             CreateMap<PriceRangeModel, PriceRange>()
+                ;
+        }
+
+        private void VehicleTypeMap()
+        {
+            CreateMap<VehicleType, VehicleTypeModel>()
+                ;
+        }
+
+        private void VehicleTypeModelMap()
+        {
+            CreateMap<VehicleTypeModel, VehicleType>()
                 ;
         }
     }
