@@ -86,6 +86,7 @@ namespace ParkingServer.Repository.Services
             var lastEntry = unitOfWork.ParkingStatusManager.GetByLicensePlateLastEntry(parkingStatusModel.LicensePlate);
             lastEntry.TimeOfLeave = parkingStatusModel.TimeOfLeave.GetValueOrDefault();
 
+            //TODO: payment may be present in parking status model  
             PaymentModel payment = CalculatePayment(lastEntry.TimeOfArrival, parkingStatusModel.TimeOfLeave.GetValueOrDefault(), lastEntry.PriceRange.Price);
 
             Payment paymentEntity = mapper.Map<Payment>(payment);
