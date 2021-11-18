@@ -63,5 +63,38 @@ namespace ParkingServer.Controllers
                 return Problem(ex.Message);
             }
         }
+
+        [HttpGet]
+        [Route("ParkingStatuses")]
+        public IActionResult GetAllParkingStatuses()
+        {
+            var data = parkingStatusService.GetAllParkingStatus();
+
+            return Ok(data);
+        }
+
+        [HttpGet]
+        [Route("GetAllPayments")]
+        public IActionResult GetAllPayments()
+        {
+            var data = parkingStatusService.GetAllPayments();
+            return Ok(data);
+        }
+
+        [HttpPost]
+        [Route("GetPaymentsByLicensePlate")]
+        public IActionResult GetPaymentsByLicensePlate([FromBody] string licensePlate)
+        {
+            try
+            {
+                var payments = parkingStatusService.GetParkingStatusByLicensePlate(licensePlate);
+
+                return Ok(payments);
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
+        }
     }
 }
