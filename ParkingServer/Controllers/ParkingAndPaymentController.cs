@@ -33,5 +33,20 @@ namespace ParkingServer.Controllers
                 return Problem(ex.Message);
             }
         }
+
+        [HttpPost]
+        [Route("GetCalculatedPaymentForLicensePlate")]
+        public IActionResult GetCalculatedPaymentForLicensePlate([FromBody] ParkingStatusModel parkingStatusModel)
+        {
+            try
+            {
+                var payment = parkingStatusService.GetCalculatedPayment(parkingStatusModel);
+                return Ok(payment);
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
+        }
     }
 }

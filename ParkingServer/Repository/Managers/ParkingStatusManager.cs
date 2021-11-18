@@ -1,4 +1,5 @@
-﻿using ParkingServer.Repository.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using ParkingServer.Repository.Entities;
 using ParkingServer.Repository.Managers.Interfaces;
 using ParkingServer.Repository.RepositoryBaseFolder;
 using System;
@@ -26,7 +27,9 @@ namespace ParkingServer.Repository.Managers
 
         public ParkingStatus GetByLicensePlateLastEntry(string licensePlate)
         {
-            return RepositoryContext.ParkingStatuses.Where(x => x.LicensePlate.Equals(licensePlate) && x.TimeOfLeave == null).SingleOrDefault();
+            return RepositoryContext.ParkingStatuses.Where(x => x.LicensePlate.Equals(licensePlate) && x.TimeOfLeave == null)
+                .Include(x => x.PriceRange)
+                .SingleOrDefault();
         }
     }
 }
