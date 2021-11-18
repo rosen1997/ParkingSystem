@@ -19,5 +19,7 @@ namespace ParkingServer.Models.EntityModels
 
         public int PriceRangeId { get; set; }
         public PriceRangeModel PriceRange { get; set; }
+
+        public PaymentModel Payment { get; set; }
     }
 }

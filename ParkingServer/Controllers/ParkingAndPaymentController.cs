@@ -48,5 +48,20 @@ namespace ParkingServer.Controllers
                 return Problem(ex.Message);
             }
         }
+
+        [HttpPost]
+        [Route("VehicleLeave")]
+        public IActionResult VehicleLeave([FromBody] ParkingStatusModel parkingStatusModel)
+        {
+            try
+            {
+                var payment = parkingStatusService.Leave(parkingStatusModel);
+                return Ok(payment);
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
+        }
     }
 }
