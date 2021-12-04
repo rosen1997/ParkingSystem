@@ -266,5 +266,11 @@ namespace ParkingClient
             var form = new RegisteredVehiclesTypesForm();
             form.ShowDialog();
         }
+
+        private void registeredVehiclesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new RegisteredVehiclesForm();
+            form.ShowDialog();
+        }
     }
 }

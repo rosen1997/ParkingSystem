@@ -87,6 +87,12 @@
     <Compile Include="Forms\PriceRangeForm.Designer.cs">
       <DependentUpon>PriceRangeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\RegisteredVehiclesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RegisteredVehiclesForm.Designer.cs">
+      <DependentUpon>RegisteredVehiclesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\RegisteredVehiclesTypesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PriceRangeForm.resx">
       <DependentUpon>PriceRangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RegisteredVehiclesForm.resx">
+      <DependentUpon>RegisteredVehiclesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RegisteredVehiclesTypesForm.resx">
       <DependentUpon>RegisteredVehiclesTypesForm.cs</DependentUpon>
