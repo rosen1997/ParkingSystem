@@ -21,7 +21,7 @@ namespace ParkingClient
         private FilterInfoCollection CaptureDevice; // list of webcam
         private VideoCaptureDevice FinalFrame;
         private bool cameraStarted = false;
-        private bool isCameraEntry = false;
+        private bool isCameraEntry = true;
 
         #region SimpleLpr
         private EngineSetupParms setupP;
@@ -54,6 +54,9 @@ namespace ParkingClient
         public Form1()
         {
             InitializeComponent();
+
+            cmbCameraType.Items.Add("Entry Camera");
+            cmbCameraType.Items.Add("Leave Camera");
 
             CaptureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);//constructor
             foreach (FilterInfo Device in CaptureDevice)
@@ -233,6 +236,16 @@ namespace ParkingClient
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (FinalFrame.IsRunning == true) FinalFrame.Stop();
+        }
+
+        private void cmbCameraType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbCameraType.SelectedItem.Equals("Entry Camera"))
+            {
+                isCameraEntry = true;
+            }
+            else
+                isCameraEntry = false;
         }
     }
 }
