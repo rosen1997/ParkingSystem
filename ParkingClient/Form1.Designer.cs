@@ -37,7 +37,6 @@ namespace ParkingClient
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.paymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.parkingDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.priceRangesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registeredVehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registeredVehicleTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,7 +102,6 @@ namespace ParkingClient
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.paymentsToolStripMenuItem,
-            this.parkingDataToolStripMenuItem,
             this.priceRangesToolStripMenuItem,
             this.registeredVehiclesToolStripMenuItem,
             this.registeredVehicleTypesToolStripMenuItem});
@@ -119,12 +117,6 @@ namespace ParkingClient
             this.paymentsToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.paymentsToolStripMenuItem.Text = "Payments";
             this.paymentsToolStripMenuItem.Click += new System.EventHandler(this.paymentsToolStripMenuItem_Click);
-            // 
-            // parkingDataToolStripMenuItem
-            // 
-            this.parkingDataToolStripMenuItem.Name = "parkingDataToolStripMenuItem";
-            this.parkingDataToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
-            this.parkingDataToolStripMenuItem.Text = "Parking Data";
             // 
             // priceRangesToolStripMenuItem
             // 
@@ -182,7 +174,6 @@ namespace ParkingClient
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem paymentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem parkingDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem priceRangesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registeredVehiclesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registeredVehicleTypesToolStripMenuItem;
