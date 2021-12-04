@@ -35,13 +35,20 @@ namespace ParkingClient
             this.RecognizedPlate = new System.Windows.Forms.PictureBox();
             this.cmbCameraType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.paymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.parkingDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.priceRangesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registeredVehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registeredVehicleTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.CameraVideo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecognizedPlate)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // CameraVideo
             // 
-            this.CameraVideo.Location = new System.Drawing.Point(12, 12);
+            this.CameraVideo.Location = new System.Drawing.Point(12, 98);
             this.CameraVideo.Name = "CameraVideo";
             this.CameraVideo.Size = new System.Drawing.Size(626, 414);
             this.CameraVideo.TabIndex = 0;
@@ -50,14 +57,14 @@ namespace ParkingClient
             // CmbCameras
             // 
             this.CmbCameras.FormattingEnabled = true;
-            this.CmbCameras.Location = new System.Drawing.Point(713, 12);
+            this.CmbCameras.Location = new System.Drawing.Point(695, 98);
             this.CmbCameras.Name = "CmbCameras";
             this.CmbCameras.Size = new System.Drawing.Size(232, 21);
             this.CmbCameras.TabIndex = 1;
             // 
             // BtnStartCamera
             // 
-            this.BtnStartCamera.Location = new System.Drawing.Point(713, 39);
+            this.BtnStartCamera.Location = new System.Drawing.Point(695, 125);
             this.BtnStartCamera.Name = "BtnStartCamera";
             this.BtnStartCamera.Size = new System.Drawing.Size(145, 23);
             this.BtnStartCamera.TabIndex = 2;
@@ -67,9 +74,9 @@ namespace ParkingClient
             // 
             // RecognizedPlate
             // 
-            this.RecognizedPlate.Location = new System.Drawing.Point(713, 385);
+            this.RecognizedPlate.Location = new System.Drawing.Point(729, 308);
             this.RecognizedPlate.Name = "RecognizedPlate";
-            this.RecognizedPlate.Size = new System.Drawing.Size(357, 233);
+            this.RecognizedPlate.Size = new System.Drawing.Size(410, 296);
             this.RecognizedPlate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.RecognizedPlate.TabIndex = 3;
             this.RecognizedPlate.TabStop = false;
@@ -77,7 +84,7 @@ namespace ParkingClient
             // cmbCameraType
             // 
             this.cmbCameraType.FormattingEnabled = true;
-            this.cmbCameraType.Location = new System.Drawing.Point(713, 118);
+            this.cmbCameraType.Location = new System.Drawing.Point(695, 220);
             this.cmbCameraType.Name = "cmbCameraType";
             this.cmbCameraType.Size = new System.Drawing.Size(178, 21);
             this.cmbCameraType.TabIndex = 4;
@@ -86,11 +93,57 @@ namespace ParkingClient
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(710, 92);
+            this.label1.Location = new System.Drawing.Point(692, 204);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Camera Type";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.paymentsToolStripMenuItem,
+            this.parkingDataToolStripMenuItem,
+            this.priceRangesToolStripMenuItem,
+            this.registeredVehiclesToolStripMenuItem,
+            this.registeredVehicleTypesToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1197, 24);
+            this.menuStrip1.TabIndex = 6;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // paymentsToolStripMenuItem
+            // 
+            this.paymentsToolStripMenuItem.Name = "paymentsToolStripMenuItem";
+            this.paymentsToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.paymentsToolStripMenuItem.Text = "Payments";
+            this.paymentsToolStripMenuItem.Click += new System.EventHandler(this.paymentsToolStripMenuItem_Click);
+            // 
+            // parkingDataToolStripMenuItem
+            // 
+            this.parkingDataToolStripMenuItem.Name = "parkingDataToolStripMenuItem";
+            this.parkingDataToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.parkingDataToolStripMenuItem.Text = "Parking Data";
+            // 
+            // priceRangesToolStripMenuItem
+            // 
+            this.priceRangesToolStripMenuItem.Name = "priceRangesToolStripMenuItem";
+            this.priceRangesToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.priceRangesToolStripMenuItem.Text = "Price Ranges";
+            this.priceRangesToolStripMenuItem.Click += new System.EventHandler(this.priceRangesToolStripMenuItem_Click);
+            // 
+            // registeredVehiclesToolStripMenuItem
+            // 
+            this.registeredVehiclesToolStripMenuItem.Name = "registeredVehiclesToolStripMenuItem";
+            this.registeredVehiclesToolStripMenuItem.Size = new System.Drawing.Size(119, 20);
+            this.registeredVehiclesToolStripMenuItem.Text = "Registered Vehicles";
+            // 
+            // registeredVehicleTypesToolStripMenuItem
+            // 
+            this.registeredVehicleTypesToolStripMenuItem.Name = "registeredVehicleTypesToolStripMenuItem";
+            this.registeredVehicleTypesToolStripMenuItem.Size = new System.Drawing.Size(146, 20);
+            this.registeredVehicleTypesToolStripMenuItem.Text = "Registered Vehicle Types";
             // 
             // Form1
             // 
@@ -103,11 +156,15 @@ namespace ParkingClient
             this.Controls.Add(this.BtnStartCamera);
             this.Controls.Add(this.CmbCameras);
             this.Controls.Add(this.CameraVideo);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Parking System";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.CameraVideo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecognizedPlate)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,6 +178,12 @@ namespace ParkingClient
         private System.Windows.Forms.PictureBox RecognizedPlate;
         private System.Windows.Forms.ComboBox cmbCameraType;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem paymentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem parkingDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem priceRangesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registeredVehiclesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registeredVehicleTypesToolStripMenuItem;
     }
 }
 

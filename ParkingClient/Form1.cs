@@ -1,5 +1,6 @@
 ﻿using AForge.Video;
 using AForge.Video.DirectShow;
+using ParkingClient.Forms;
 using ParkingClient.Models;
 using RestSharp;
 using SimpleLPR3;
@@ -246,6 +247,18 @@ namespace ParkingClient
             }
             else
                 isCameraEntry = false;
+        }
+
+        private void paymentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var paymentsForm = new PaymentsForm();
+            paymentsForm.ShowDialog();
+        }
+
+        private void priceRangesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new PriceRangeForm();
+            form.ShowDialog();
         }
     }
 }
