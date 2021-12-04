@@ -37,6 +37,7 @@ namespace ParkingClient.Forms
             this.cmbVehicleType = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegisteredVehicles)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,6 +60,7 @@ namespace ParkingClient.Forms
             this.dgvRegisteredVehicles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRegisteredVehicles.Size = new System.Drawing.Size(561, 291);
             this.dgvRegisteredVehicles.TabIndex = 1;
+            this.dgvRegisteredVehicles.SelectionChanged += new System.EventHandler(this.dgvRegisteredVehicles_SelectionChanged);
             // 
             // label2
             // 
@@ -73,7 +75,7 @@ namespace ParkingClient.Forms
             // 
             this.txtPlate.Location = new System.Drawing.Point(677, 119);
             this.txtPlate.Name = "txtPlate";
-            this.txtPlate.Size = new System.Drawing.Size(143, 20);
+            this.txtPlate.Size = new System.Drawing.Size(156, 20);
             this.txtPlate.TabIndex = 3;
             // 
             // cmbPriceRange
@@ -81,7 +83,7 @@ namespace ParkingClient.Forms
             this.cmbPriceRange.FormattingEnabled = true;
             this.cmbPriceRange.Location = new System.Drawing.Point(677, 145);
             this.cmbPriceRange.Name = "cmbPriceRange";
-            this.cmbPriceRange.Size = new System.Drawing.Size(143, 21);
+            this.cmbPriceRange.Size = new System.Drawing.Size(156, 21);
             this.cmbPriceRange.TabIndex = 4;
             // 
             // cmbVehicleType
@@ -89,12 +91,12 @@ namespace ParkingClient.Forms
             this.cmbVehicleType.FormattingEnabled = true;
             this.cmbVehicleType.Location = new System.Drawing.Point(677, 172);
             this.cmbVehicleType.Name = "cmbVehicleType";
-            this.cmbVehicleType.Size = new System.Drawing.Size(143, 21);
+            this.cmbVehicleType.Size = new System.Drawing.Size(156, 21);
             this.cmbVehicleType.TabIndex = 5;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(745, 218);
+            this.btnAdd.Location = new System.Drawing.Point(677, 214);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 6;
@@ -112,11 +114,22 @@ namespace ParkingClient.Forms
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(758, 214);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 8;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // RegisteredVehiclesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(936, 450);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.cmbVehicleType);
@@ -144,5 +157,6 @@ namespace ParkingClient.Forms
         private System.Windows.Forms.ComboBox cmbVehicleType;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

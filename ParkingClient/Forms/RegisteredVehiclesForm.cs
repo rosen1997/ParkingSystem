@@ -16,6 +16,8 @@ namespace ParkingClient.Forms
     public partial class RegisteredVehiclesForm : Form
     {
         private ObservableCollection<RegisteredVehicleModel> registeredVehicleModels;
+        private IEnumerable<PriceRangeModel> priceRangeModels;
+        private IEnumerable<VehicleTypeModel> vehicleTypeModels;
         public RegisteredVehiclesForm()
         {
             InitializeComponent();
@@ -23,14 +25,16 @@ namespace ParkingClient.Forms
 
         private void RegisteredVehiclesForm_Load(object sender, EventArgs e)
         {
-            registeredVehicleModels = new ObservableCollection<RegisteredVehicleModel>(GetAll());
-            dgvRegisteredVehicles.DataSource = registeredVehicleModels;
-
-            cmbPriceRange.DataSource = GetPriceRanges();
+            priceRangeModels = GetPriceRanges();
+            cmbPriceRange.DataSource = priceRangeModels;
             cmbPriceRange.DisplayMember = "Price";
 
-            cmbVehicleType.DataSource = GetVehicleTypes();
+            vehicleTypeModels = GetVehicleTypes();
+            cmbVehicleType.DataSource = vehicleTypeModels;
             cmbVehicleType.DisplayMember = "Type";
+
+            registeredVehicleModels = new ObservableCollection<RegisteredVehicleModel>(GetAll());
+            dgvRegisteredVehicles.DataSource = registeredVehicleModels;
         }
 
         private IEnumerable<RegisteredVehicleModel> GetAll()
@@ -114,6 +118,49 @@ namespace ParkingClient.Forms
             registeredVehicleModels.Remove(vehicle);
             dgvRegisteredVehicles.Refresh();
             dgvRegisteredVehicles.Update();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (dgvRegisteredVehicles.SelectedRows.Count == 0)
+                return;
+            var selectedItem = dgvRegisteredVehicles.SelectedRows[0].DataBoundItem as RegisteredVehicleModel;
+
+            if (!selectedItem.LicensePlate.Equals(txtPlate.Text))
+                return;
+
+            int priceRangeId = (cmbPriceRange.SelectedItem as PriceRangeModel).Id;
+            int vehicleTypeId = (cmbVehicleType.SelectedItem as VehicleTypeModel).Id;
+
+            selectedItem.PriceRange = null;
+            selectedItem.PriceRangeId = priceRangeId;
+            selectedItem.VehicleType = null;
+            selectedItem.VehicleTypeId = vehicleTypeId;
+
+            var client = new RestClient("https://localhost:44361/RegisteredVehicles/UpdateRegisteredVehicleInformation");
+
+            var request = new RestRequest(Method.PUT);
+
+            request.AddHeader("Content-Type", "application/vnd.api+json");
+            request.AddHeader("Accept", "application/vnd.api+json");
+
+            request.AddJsonBody(selectedItem);
+            var response = client.Execute<RegisteredVehicleModel>(request).Data;
+            selectedItem = response;
+            dgvRegisteredVehicles.Refresh();
+            dgvRegisteredVehicles.Update();
+        }
+
+        private void dgvRegisteredVehicles_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvRegisteredVehicles.SelectedRows.Count == 0)
+                return;
+
+            var item = dgvRegisteredVehicles.SelectedRows[0].DataBoundItem as RegisteredVehicleModel;
+
+            txtPlate.Text = item.LicensePlate;
+            cmbPriceRange.SelectedItem = priceRangeModels.Where(x => x.Id == item.PriceRangeId).Single();
+            cmbVehicleType.SelectedItem = vehicleTypeModels.Where(x => x.Id == item.VehicleTypeId).Single();
         }
     }
 }
