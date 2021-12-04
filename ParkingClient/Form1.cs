@@ -1,5 +1,7 @@
 ﻿using AForge.Video;
 using AForge.Video.DirectShow;
+using ParkingClient.Models;
+using RestSharp;
 using SimpleLPR3;
 using System;
 using System.Collections.Generic;
@@ -19,13 +21,35 @@ namespace ParkingClient
         private FilterInfoCollection CaptureDevice; // list of webcam
         private VideoCaptureDevice FinalFrame;
         private bool cameraStarted = false;
+        private bool isCameraEntry = false;
 
         #region SimpleLpr
         private EngineSetupParms setupP;
         private ISimpleLPR lpr;
         IProcessor proc;
         #endregion
+
         private string lastPlate = string.Empty;
+        public string LastPlate
+        {
+            get => lastPlate;
+            set
+            {
+                lastPlate = value;
+                if (isCameraEntry)
+                {
+                    VehicleEnter(new ParkingStatusModel { LicensePlate = value, TimeOfArrival = DateTime.Now });
+                }
+                else
+                {
+                    var parkingStatus = new ParkingStatusModel { LicensePlate = value, TimeOfLeave = DateTime.Now };
+                    var payment = CalculateVehiclePayment(parkingStatus);
+                    //TODO: show new form enter payment amount and press OK
+                    parkingStatus.Payment = payment;
+                    VehicleLeave(parkingStatus);
+                }
+            }
+        }
 
         public Form1()
         {
@@ -51,6 +75,50 @@ namespace ParkingClient
             proc = lpr.createProcessor();
             #endregion
 
+        }
+
+        private void VehicleEnter(ParkingStatusModel parkingStatusModel)
+        {
+            var client = new RestClient("https://localhost:44361/ParkingAndPayment/EnterParking");
+
+            var request = new RestRequest(Method.POST);
+
+            request.AddHeader("Content-Type", "application/vnd.api+json");
+            request.AddHeader("Accept", "application/vnd.api+json");
+
+            request.AddJsonBody(parkingStatusModel);
+
+            var response = client.Execute<ParkingStatusModel>(request).Data;
+        }
+        private PaymentModel CalculateVehiclePayment(ParkingStatusModel parkingStatusModel)
+        {
+            var client = new RestClient("https://localhost:44361/ParkingAndPayment/GetCalculatedPaymentForLicensePlate");
+
+            var request = new RestRequest(Method.POST);
+
+            request.AddHeader("Content-Type", "application/vnd.api+json");
+            request.AddHeader("Accept", "application/vnd.api+json");
+
+            request.AddJsonBody(parkingStatusModel);
+
+            var response = client.Execute<PaymentModel>(request).Data;
+
+            return response;
+        }
+        private PaymentModel VehicleLeave(ParkingStatusModel parkingStatusModel)
+        {
+            var client = new RestClient("https://localhost:44361/ParkingAndPayment/VehicleLeave");
+
+            var request = new RestRequest(Method.POST);
+
+            request.AddHeader("Content-Type", "application/vnd.api+json");
+            request.AddHeader("Accept", "application/vnd.api+json");
+
+            request.AddJsonBody(parkingStatusModel);
+
+            var response = client.Execute<PaymentModel>(request).Data;
+
+            return response;
         }
 
         private void BtnStartCamera_Click(object sender, EventArgs e)
@@ -87,10 +155,10 @@ namespace ParkingClient
                 if (!regMatch.Success)
                     return;
 
-                if (lastPlate.Equals(bestMatch))
+                if (LastPlate.Equals(bestMatch))
                     return;
 
-                lastPlate = bestMatch;
+                LastPlate = bestMatch;
                 drawImage(bestCandidate, bitmap);
             }
         }
