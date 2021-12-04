@@ -260,5 +260,11 @@ namespace ParkingClient
             var form = new PriceRangeForm();
             form.ShowDialog();
         }
+
+        private void registeredVehicleTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new RegisteredVehiclesTypesForm();
+            form.ShowDialog();
+        }
     }
 }

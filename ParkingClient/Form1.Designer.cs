@@ -144,6 +144,7 @@ namespace ParkingClient
             this.registeredVehicleTypesToolStripMenuItem.Name = "registeredVehicleTypesToolStripMenuItem";
             this.registeredVehicleTypesToolStripMenuItem.Size = new System.Drawing.Size(146, 20);
             this.registeredVehicleTypesToolStripMenuItem.Text = "Registered Vehicle Types";
+            this.registeredVehicleTypesToolStripMenuItem.Click += new System.EventHandler(this.registeredVehicleTypesToolStripMenuItem_Click);
             // 
             // Form1
             // 
