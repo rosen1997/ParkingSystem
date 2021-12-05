@@ -40,6 +40,7 @@ namespace ParkingClient
             this.priceRangesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registeredVehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registeredVehicleTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.parkingHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.CameraVideo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecognizedPlate)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -104,7 +105,8 @@ namespace ParkingClient
             this.paymentsToolStripMenuItem,
             this.priceRangesToolStripMenuItem,
             this.registeredVehiclesToolStripMenuItem,
-            this.registeredVehicleTypesToolStripMenuItem});
+            this.registeredVehicleTypesToolStripMenuItem,
+            this.parkingHistoryToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1197, 24);
@@ -138,6 +140,13 @@ namespace ParkingClient
             this.registeredVehicleTypesToolStripMenuItem.Size = new System.Drawing.Size(146, 20);
             this.registeredVehicleTypesToolStripMenuItem.Text = "Registered Vehicle Types";
             this.registeredVehicleTypesToolStripMenuItem.Click += new System.EventHandler(this.registeredVehicleTypesToolStripMenuItem_Click);
+            // 
+            // parkingHistoryToolStripMenuItem
+            // 
+            this.parkingHistoryToolStripMenuItem.Name = "parkingHistoryToolStripMenuItem";
+            this.parkingHistoryToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
+            this.parkingHistoryToolStripMenuItem.Text = "Parking History";
+            this.parkingHistoryToolStripMenuItem.Click += new System.EventHandler(this.parkingHistoryToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -177,6 +186,7 @@ namespace ParkingClient
         private System.Windows.Forms.ToolStripMenuItem priceRangesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registeredVehiclesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registeredVehicleTypesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem parkingHistoryToolStripMenuItem;
     }
 }
 

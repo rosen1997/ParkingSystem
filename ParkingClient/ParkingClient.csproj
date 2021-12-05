@@ -75,6 +75,12 @@
     <Compile Include="Forms\ParkingDataForm.Designer.cs">
       <DependentUpon>ParkingDataForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ParkingHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ParkingHistoryForm.Designer.cs">
+      <DependentUpon>ParkingHistoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PaymentsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ParkingHistoryForm.resx">
+      <DependentUpon>ParkingHistoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PaymentsForm.resx">
       <DependentUpon>PaymentsForm.cs</DependentUpon>
