@@ -45,6 +45,7 @@ namespace ParkingClient
                 {
                     var parkingStatus = new ParkingStatusModel { LicensePlate = value, TimeOfLeave = DateTime.Now };
                     var payment = CalculateVehiclePayment(parkingStatus);
+                    MessageBox.Show($"Due amount: {payment.PaymentAmount}");
                     //TODO: show new form enter payment amount and press OK
                     parkingStatus.Payment = payment;
                     VehicleLeave(parkingStatus);
@@ -247,6 +248,8 @@ namespace ParkingClient
             }
             else
                 isCameraEntry = false;
+
+            lastPlate = string.Empty;
         }
 
         private void paymentsToolStripMenuItem_Click(object sender, EventArgs e)
