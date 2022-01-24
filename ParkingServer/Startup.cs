@@ -32,7 +32,7 @@ namespace ParkingServer
         {
             services.AddControllers();
 
-            string connectionString = Configuration.GetConnectionString("ConnectionStringLocalhost2");
+            string connectionString = Configuration.GetConnectionString("ConnectionStringLocalhost");
             services.AddDbContext<RepositoryContext>(options => { options.UseSqlServer(connectionString); });
 
             services.AddAutoMapper(typeof(Startup));
