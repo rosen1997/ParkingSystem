@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingServer", "ParkingServer.csproj", "{DA095F7A-2653-4EFF-9C5C-5D44500E8459}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParkingServer", "ParkingServer.csproj", "{DA095F7A-2653-4EFF-9C5C-5D44500E8459}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingServerTests", "..\ParkingServerTests\ParkingServerTests.csproj", "{FFA3007D-63B8-4B9A-B74F-57EC684E479C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{DA095F7A-2653-4EFF-9C5C-5D44500E8459}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA095F7A-2653-4EFF-9C5C-5D44500E8459}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA095F7A-2653-4EFF-9C5C-5D44500E8459}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFA3007D-63B8-4B9A-B74F-57EC684E479C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFA3007D-63B8-4B9A-B74F-57EC684E479C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFA3007D-63B8-4B9A-B74F-57EC684E479C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFA3007D-63B8-4B9A-B74F-57EC684E479C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
